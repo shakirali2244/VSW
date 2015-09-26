@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_manager!
 
   def new
     @driver = Driver.new(driver_params)
