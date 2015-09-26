@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926025913) do
+ActiveRecord::Schema.define(version: 20150926030720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,4 +41,22 @@ ActiveRecord::Schema.define(version: 20150926025913) do
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "trips", force: :cascade do |t|
+    t.string   "title"
+    t.string   "note"
+    t.string   "startingpoint"
+    t.string   "endingpoint"
+    t.datetime "startingtime"
+    t.datetime "endingtime"
+    t.integer  "manager_id"
+    t.integer  "driver_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "trips", ["driver_id"], name: "index_trips_on_driver_id", using: :btree
+  add_index "trips", ["manager_id"], name: "index_trips_on_manager_id", using: :btree
+
+  add_foreign_key "trips", "drivers"
+  add_foreign_key "trips", "managers"
 end
