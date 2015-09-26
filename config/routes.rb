@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'homes#index'
 
-  resources :drivers do
-    resources :trips
-  end
+  resources :drivers
+  resources :trips
+  # resources :drivers do
+  #   resources :trips
+  # end
 end

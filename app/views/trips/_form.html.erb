@@ -1,0 +1,28 @@
+<%= form_for @trip, html: {class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :note %>
+    <%= f.text_area :note, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :startingpoint %>
+    <%= f.text_field :startingpoint, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :endingpoint %>
+    <%= f.text_field :endingpoint, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :startingtime %>
+    <%= f.date_select :startingtime, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :endingtime %>
+    <%= f.date_select :endingtime, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary", data: {disable_with: "saving.."} %>
+<% end %>
