@@ -2,12 +2,11 @@ class DriversController < ApplicationController
   before_action :authenticate_manager!
 
   def new
-    @driver = Driver.new(driver_params)
+    @driver = Driver.new
   end
 
   def create
     @driver         = Driver.new(driver_params)
-    @driver.manager = current_manager
     if @driver.save
       redirect_to drivers_path, notice: "Driver created!"
     else
@@ -21,13 +20,15 @@ class DriversController < ApplicationController
   end
 
   def show
-    @driver = Driver.find
+    @driver = Driver.find(params[:id])
   end
 
   def edit
+    @driver = Driver.find(params[:id])
   end
 
   def update
+    @driver = Driver.find(params[:id])
     if @driver.update(driver_params)
       redirect_to driver_path(@driver)
     else
@@ -37,6 +38,7 @@ class DriversController < ApplicationController
   end
 
   def destroy
+    @driver = Driver.find(params[:id])
     @driver.destroy
     redirect_to drivers_path, notice: "Driver deleted!"
   end
