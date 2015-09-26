@@ -50,7 +50,8 @@ class TripsController < ApplicationController
                                  :startingpoint,
                                  :endingpoint,
                                  :startingtime,
-                                 :endingtime)
+                                 :endingtime,
+                                 :driver_id)
   end
 
 end
