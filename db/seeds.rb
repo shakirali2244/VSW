@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  name = Faker::Name.name
+  location = "30 Main St"
+  Driver.create({name: name, location: location})
+end
