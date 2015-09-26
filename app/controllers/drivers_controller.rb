@@ -30,7 +30,7 @@ class DriversController < ApplicationController
   def update
     @driver = Driver.find(params[:id])
     if @driver.update(driver_params)
-      redirect_to driver_path(@driver)
+      redirect_to driver_path(@driver), notice: "Driver updated!"
     else
       flash[:alert] = "See errors below"
       render :edit
@@ -42,6 +42,8 @@ class DriversController < ApplicationController
     @driver.destroy
     redirect_to drivers_path, notice: "Driver deleted!"
   end
+
+  private
 
   def driver_params
     params.require(:driver).permit(:name, :location)

@@ -1,0 +1,12 @@
+<h2>Driver's information</h2>
+
+<h3><%= @trip.title %></h3>
+<h3><%= @trip.note %></h3>
+<h3><%= @trip.startingpoint %></h3>
+<h3><%= @trip.endingpoint %></h3>
+<h3><%= @trip.startingtime.strftime("%Y-%b-%d") %></h3>
+<h3><%= @trip.endingtime.strftime("%Y-%b-%d") %></h3>
+
+<%= link_to "Edit", edit_trip_path(@trip), class: "btn btn-info" %>
+<%= link_to "Delete", trip_path(@trip), method: :delete,
+            data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>

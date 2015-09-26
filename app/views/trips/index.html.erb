@@ -1,1 +1,5 @@
 <p>List of trips.  Data Viz view</p>
+
+<% @trips.each do |t| %>
+  <h2><%= link_to t.title, trip_path(t) %></h2>
+<% end %>
