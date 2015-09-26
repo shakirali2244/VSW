@@ -1,5 +1,6 @@
-<h1>All Drivers</h1>
-
-<% @drivers.each do |d| %>
-  <h3><%= link_to d.name, driver_path(d) %></h3>
-<% end %>
+<div class="container">
+  <h1>All Drivers</h1>
+  <% @drivers.each do |d| %>
+    <h3><%= link_to d.name, driver_path(d) %></h3>
+  <% end %>
+</div>
